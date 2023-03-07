@@ -6,4 +6,4 @@ def uppercase(str1):
             print(f'{chr(code - 32)}', end='')
         else:
             print(f'{letter}', end='')
-    print()
+    print(f'')
