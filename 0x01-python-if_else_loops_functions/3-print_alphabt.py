@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 for letter in 'abcdefghijklmnopqrstuvwxyz':
-	if letter != 'e' and letter != 'q':
-		print(letter, end="")
+    if letter != 'e' and letter != 'q':
+        print(f'{letter}', end="")

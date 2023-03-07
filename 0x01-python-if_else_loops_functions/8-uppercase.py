@@ -5,5 +5,5 @@ def uppercase(str1):
         if code >= 97 and code <= 122:
             print(f'{chr(code - 32)}', end='')
         else:
-            print(letter, end='')
+            print(f'{letter}', end='')
     print()
