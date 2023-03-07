@@ -3,4 +3,4 @@ for num in range(100):
     if num == 99:
         print(num)
     else:
-        print(f'{num:02}, ', end='')  # print width of 2 spaces
+        print('{:02}, '.format(num), end='')  # print width of 2 spaces
