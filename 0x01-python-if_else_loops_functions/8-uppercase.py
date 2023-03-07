@@ -6,4 +6,4 @@ def uppercase(str1):
             print('{:c}'.format(code - 32), end='')
         else:
             print('{}'.format(letter), end='')
-    print(f'')
+    print('')
