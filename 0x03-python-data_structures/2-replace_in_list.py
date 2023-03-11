@@ -10,8 +10,6 @@ def replace_in_list(my_list, idx, element):
     if idx > list_range:
         return my_list
 
-    for i in range(list_range + 1):
-        if i == idx:
-            my_list[i] = element
+    my_list[i] = element
 
     return my_list
