@@ -8,6 +8,6 @@ def print_matrix_integer(matrix=[[]]):
 
         for i, integer in enumerate(row):
             if i == row_len - 1:
-                print('{}'.format(integer))
+                print('{:d}'.format(integer))
             else:
-                print('{}'.format(integer), end=' ')
+                print('{:d}'.format(integer), end=' ')
