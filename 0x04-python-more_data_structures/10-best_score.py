@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
-    if a_dictionary == None:
-        return None
+    if a_dictionary is {}:
+        return a_dictionary
 
     score = 0
     name = ''

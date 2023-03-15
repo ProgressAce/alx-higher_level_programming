@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 
 def uniq_add(my_list=[]):
-    if my_list == []:
-        return my_list
 
     uniq_list = set(my_list)
     result = 0
