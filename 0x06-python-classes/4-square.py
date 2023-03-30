@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """Defines a Square class"""
 
+
 class Square:
-    """Template of a square"""
+    """Defines a square object"""
 
     def __init__(self, size=0):
         """initialise the square
@@ -15,7 +16,6 @@ class Square:
     @property
     def size(self):
         """Returns the size of the square"""
-
         return (self.__size)
 
     @size.setter
