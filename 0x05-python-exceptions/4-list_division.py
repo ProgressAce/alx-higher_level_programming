@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 
 def list_division(my_list_1, my_list_2, list_length):
     """divides element by element 2 lists.
@@ -10,7 +10,6 @@ def list_division(my_list_1, my_list_2, list_length):
     for i in range(list_length):
         try:
             a, b = my_list_1[i], my_list_2[i]
-
             result = a / b
         except (ValueError, TypeError):
             print('wrong type')
