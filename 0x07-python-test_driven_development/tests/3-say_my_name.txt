@@ -1,0 +1,58 @@
+
+============================
+How to use 3-say_my_name.txt
+============================
+
+This module defines a function called say_my_name
+
+``say_my_name(first_name, last_name="")``-Uses the first_name and the last_name
+    arguments to print the output: My name is <first name> <last name>
+
+
+Usage:
+======
+
+Importing function from the module:
+~
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+The function takes in two string arguments and uses them as the first_name
+and the last_name respectively.
+~
+~
+    >>> say_my_name('John', 'Smith')
+    My name is John Smith
+
+    >>> say_my_name('Bob', 'Stone')
+    My name is Bob Stone
+
+If the function only receives one argument, then the last_name variable will be
+set to its default value of "".
+~
+~
+    >>> say_my_name('Rimuru')
+    My name is Rimuru 
+
+The function only accepts string arguments. If a non-string arguments is passed
+then a TypeError exception is raised.
+~
+~
+    >>> say_my_name(None, 'Will')
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name("Sammy", 5)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+If both arguments are non_strings, then a TypeError exception is raised only
+for the first argument
+~
+~
+    >>> say_my_name(None, "Will")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(589)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string

@@ -1,0 +1,71 @@
+
+===========================
+How to use 0-add_integer.py
+===========================
+
+This module defines a function called add_integer
+
+``add_integer(a, b=98)`` - returns the addition of its two arguments, which
+    are expected to be integers.
+
+
+Usage:
+======
+
+Importing function from the module:
+~
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+
+The function expects ineteger arguments, but it handles floats as well by
+casting them to integers. When casting: the floor of the float will be used.
+~
+~
+    >>> add_integer(3, 5)
+    8
+
+    >>> add_integer(-3, 5)
+    2
+
+    >>> add_integer(1.2, 1.8)
+    2
+
+    >>> add_integer(-3.5, -1.7)
+    -4
+
+    >>> add_integer(2, 2.5)
+    4
+
+If only one argument is passed then the second argument will have a default
+value of 98.
+~
+~
+    >>> add_integer(2)
+    100
+
+The function does not add any values except integer. It expects its arguments
+to be either integers or floats, otherwise a TypeError exception is raised.
+~
+~
+    >>> add_integer("achoo", 5)
+    traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(3, "abc")
+    traceback (most recent call last):
+    TypeError: b must be an integer
+
+    >>> add_integer(None)
+    traceback (most recent call last):
+    TypeError: a must be an integer
+
+The function will fail if an infinite number is provided
+~
+~
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer

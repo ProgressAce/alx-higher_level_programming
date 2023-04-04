@@ -1,0 +1,78 @@
+
+================================
+How to use 5-text_indentation.py
+================================
+
+This module defines a function called text_indentation.
+
+``text_indentation(text)`` - accepts a string argument and prints two
+    new lines after each of these special characters are found:
+    ".", "?" and ":".
+
+
+Usage:
+======
+
+Importing function from the module:
+~
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+No spaces whitespaces are printed at the beginnig of a line:
+~
+~
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+    >>> text_indentation('   Johnny went home.')
+    Johnny went home.
+    <BLANKLINE>
+
+    >>>text_indentation('        ')
+
+
+Or at the end of a line:
+~
+~
+    >>> text_indentation('He bought:    ')
+    He bought:
+    <BLANKLINE>
+
+New lines are only printed after the characters ``.``, ``?``, and ``:`` -
+text not ending with one of these characters is not ended with a new line.
+~
+~
+    >>> text_indentation('    messy sandwiches    and a massive energy bar  ')
+    messy sandwiches and a massive energy bar
+
+New lines can still print as normal in a string:
+~
+~
+    >>> text_indentation('\n\nThis is a printed line.')
+    <BLANKLINE>
+    <BLANKLINE>
+    This is a printed line
+    <BLANKLINE>
+
+A mixed example:
+~
+~
+    >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur \
+    adipiscing elit. Quonam modo? Non autem hoc: Utinam quidem 
+    dicerent alium alio beatiorem! Iam ruinas videres""")
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
+    Quonam modo?
+    <BLANKLINE>
+    Non autem hoc:
+    <BLANKLINE>
+    Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
+
+If a non-string argument is given, then a TypeError is raised.
+~
+~
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> text_indentation(5.2)
+    Traceback (most recent call last):
+    TypeError: text must be a string
