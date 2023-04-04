@@ -26,7 +26,7 @@ No spaces whitespaces are printed at the beginnig of a line:
     Johnny went home.
     <BLANKLINE>
 
-    >>>text_indentation('        ')
+    >>> text_indentation('        ')
 
 
 Or at the end of a line:
