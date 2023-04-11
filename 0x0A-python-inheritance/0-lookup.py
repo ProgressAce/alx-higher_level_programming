@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-Module for returning a list of available attributes and methods
-of an object.
+Module defining the function lookup.
 """
 
 
