@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
-A module that defines a function is_kind_of_class
+A module that defines a function is_kind_of_class.
 """
 
 
 def is_kind_of_class(obj, a_class):
-    """Checks if an object @obj is an instance of a class or one its subclasses.
+    """Checks if an object is an instance of a class or one its subclasses.
 
     Args:
         obj(object): the object to check.

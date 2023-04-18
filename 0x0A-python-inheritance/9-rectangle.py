@@ -4,8 +4,8 @@ A module defining a class Rectangle, which inherits from
 class BaseGeometry.
 """
 
-
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
 
 class Rectangle(BaseGeometry):
     """Template for class Rectangle, a subclass of class BassGeometry."""
@@ -34,9 +34,9 @@ class Rectangle(BaseGeometry):
         """Return the print() and str() representation of a Rectangle."""
 
         rect = '[' + self.__class__.__name__ + ']'
-        rect += ' ' self.__width + '/' self.__height
+        rect += ' ' + str(self.__width) + '/' + str(self.__height)
 
-        return (rect)
+        return (''.join(rect))
 
     def area(self):
         """Returs the area of a Rectangle."""

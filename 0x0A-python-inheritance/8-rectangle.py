@@ -4,8 +4,8 @@ A module defining a class Rectangle, which inherits from
 class BaseGeometry.
 """
 
-
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
 
 class Rectangle(BaseGeometry):
     """Template for class Rectangle, a subclass of class BassGeometry."""
@@ -14,7 +14,7 @@ class Rectangle(BaseGeometry):
         """Initialisation of Rectangle object.
 
         Width and height must be positive integers. Uses the baseclass
-        method @integer_validator to validate.
+        method integer_validator to validate.
 
         Args:
             width(int): the width of the rectangle.
