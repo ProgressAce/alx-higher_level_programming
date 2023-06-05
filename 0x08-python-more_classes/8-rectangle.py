@@ -6,9 +6,13 @@
 class Rectangle:
     """Blueprints for a Rectangle instance."""
 
+    number_of_instances = 0
+    print_symbol = '#'
+
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -57,7 +61,7 @@ class Rectangle:
 
         rect = ''
         for i in range(self.__height):
-            rect += '#' * self.__width
+            rect += str(Rectangle.print_symbol) * self.__width
 
             if not i == self.__height - 1:
                 rect += '\n'
@@ -72,11 +76,48 @@ class Rectangle:
 
         return rect
 
+    def __del__(self):
+        """Prints a message saying bye upon deletion of a rectangle."""
+
+        print('Bye rectangle...')
+        Rectangle.number_of_instances -= 1
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """Returns the biggest rectangle based on their area."""
+
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError('rect_1 must be an instance of Rectangle')
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError('rect_2 must be an instance of Rectangle')
+
+        biggest = rect_1
+
+        if biggest.area() == rect_2.area():
+            return biggest
+
+        if biggest.area() < rect_2.area():
+            return rect_2
+
+        return biggest
+
 
 # rect = Rectangle(4, 6)
 # print('rect\'s area: {} and perimeter: {}'.format(rect.area(),
-#                                       rect.perimeter()))
+#                                         rect.perimeter()))
 # print(rect)
 # print(repr(rect))
+
+# """test"""
 # rect_cousin = eval(repr(rect))
+# print(hex(id(rect)))
+# print(hex(id(rect_cousin)))
+# print(hex(id(Rectangle.bigger_or_equal(rect, rect_cousin))))
+# del rect, rect_cousin
+
 # print(rect_cousin)
+# print(Rectangle.number_of_instances)
+# Rectangle.print_symbol = ['C', 'is', 777, 'challenging and fun']
+# print(rect)
+# del rect
+# print(Rectangle.number_of_instances)

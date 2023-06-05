@@ -72,11 +72,17 @@ class Rectangle:
 
         return rect
 
+    def __del__(self):
+        """Prints a message saying bye upon deletion of a rectangle."""
+
+        print('Bye rectangle...')
+
 
 # rect = Rectangle(4, 6)
 # print('rect\'s area: {} and perimeter: {}'.format(rect.area(),
-#                                       rect.perimeter()))
+#                                         rect.perimeter()))
 # print(rect)
 # print(repr(rect))
 # rect_cousin = eval(repr(rect))
 # print(rect_cousin)
+# del rect

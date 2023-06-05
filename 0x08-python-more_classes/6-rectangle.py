@@ -6,9 +6,12 @@
 class Rectangle:
     """Blueprints for a Rectangle instance."""
 
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -72,11 +75,20 @@ class Rectangle:
 
         return rect
 
+    def __del__(self):
+        """Prints a message saying bye upon deletion of a rectangle."""
+
+        print('Bye rectangle...')
+        Rectangle.number_of_instances -= 1
+
 
 # rect = Rectangle(4, 6)
 # print('rect\'s area: {} and perimeter: {}'.format(rect.area(),
-#                                       rect.perimeter()))
+#                                         rect.perimeter()))
 # print(rect)
 # print(repr(rect))
 # rect_cousin = eval(repr(rect))
 # print(rect_cousin)
+# print(Rectangle.number_of_instances)
+# del rect
+# print(Rectangle.number_of_instances)
