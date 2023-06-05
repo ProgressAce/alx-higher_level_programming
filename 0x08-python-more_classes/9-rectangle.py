@@ -128,5 +128,5 @@ class Rectangle:
 # del rect
 # print(Rectangle.number_of_instances)
 
-rec = Rectangle.square(5)
-print(rec)
+# rec = Rectangle.square(5)
+# print(rec)

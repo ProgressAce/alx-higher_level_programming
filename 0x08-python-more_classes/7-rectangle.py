@@ -61,7 +61,7 @@ class Rectangle:
 
         rect = ''
         for i in range(self.__height):
-            rect += str(Rectangle.print_symbol) * self.__width
+            rect += str(self.print_symbol) * self.__width
 
             if not i == self.__height - 1:
                 rect += '\n'
@@ -84,6 +84,7 @@ class Rectangle:
 
 
 # rect = Rectangle(4, 6)
+
 # print('rect\'s area: {} and perimeter: {}'.format(rect.area(),
 #                                         rect.perimeter()))
 # print(rect)
@@ -91,7 +92,13 @@ class Rectangle:
 # rect_cousin = eval(repr(rect))
 # print(rect_cousin)
 # print(Rectangle.number_of_instances)
+
 # Rectangle.print_symbol = ['C', 'is', 777, 'challenging and fun']
 # print(rect)
+# print('\n---\n')
+# rect.print_symbol = '^'
+# print(rect)
+# print(rect.__dict__)
 # del rect
+
 # print(Rectangle.number_of_instances)
