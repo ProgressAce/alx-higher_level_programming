@@ -35,11 +35,11 @@ def matrix_divided(matrix, div):
     for i, row in enumerate(matrix):
         if not isinstance(row, list):
             raise TypeError('matrix must be a matrix (list of lists) '
-                'of integers/floats')
+                            'of integers/floats')
 
         if row_len != len(row):
             raise TypeError('Each row of the matrix must have '
-                'the same size')
+                            'the same size')
 
         new_matrix.append([])
         for num in row:
