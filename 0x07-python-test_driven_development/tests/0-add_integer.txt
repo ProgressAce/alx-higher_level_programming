@@ -1,0 +1,37 @@
+
+============================
+How to use 0-add_integer.py:
+============================
+
+This module only contains one function called ``add_integer()``.
+
+``add_integer()`` returns the sum of two integers. The arguments are
+casted to integers should they be floats.
+
+USE:
+====
+~~
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Arguments are expected to be integers or floating point values.
+~~
+    >>> add_integer(12, 5)
+    17
+
+    Floats are rounded using floor rounding so: 4 + 5
+    >>> add_integer(4.2, 5.6)
+    9
+
+If arguments are not integers or strings, then a TypeError exception
+is raised.
+~~
+    >>> add_integer('I am a number', 15)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(4, [485])
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+Other types are not checked as the function only accepts args that
+are of instance int and float.
