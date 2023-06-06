@@ -1,0 +1,100 @@
+
+=================================
+How to use 5-text_indentation.py:
+=================================
+
+This module only contains one function called ``text_indentation()``.
+
+``text_indentation()`` that prints two new lines(\n) after
+one of these characters: '.', '?' and ':'.
+
+USE:
+====
+~~
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+The function prints a text and only if the above mentioned characters are
+found, will the function print two new lines.
+~~
+    >>> text_indentation('John stops working after 4pm;')
+    John stops working after 4pm;
+
+    >>> text_indentation('he starts again at 6am the next day.')
+    he starts again at 6am the next day.
+    <BLANKLINE>
+
+
+The function does not print whitespaces before the start of the line or
+at the end of the line.
+~~
+    >>> text_indentation('   Han Solo no longer goes solo.')
+    Han Solo no longer goes solo.
+    <BLANKLINE>
+
+    >>> text_indentation(' His fellow companion is:   Chewbacca  ')
+    His fellow companion is:
+    <BLANKLINE>
+    Chewbacca
+
+
+Should the text argument be an empty str, then it will be printed
+like normal text since an extra new line is only printed if one of
+the special characters are found.
+~~
+    >>> text_indentation('')
+    <BLANKLINE>
+
+    >>> text_indentation('abacus')
+    abacus
+
+
+If the text is not of type string, then a TypeError is raised.
+~~
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+
+Example with bigger text.
+~~
+    >>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+    "Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? "
+    "Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: "
+    "Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. "
+    "Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum "
+    "rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo "
+    "stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum "
+    "cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio "
+    "beatiorem! Iam ruinas videres")
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
+    Quonam modo?
+    <BLANKLINE>
+    Utrum igitur tibi litteram videor an totas paginas commovere?
+    <BLANKLINE>
+    Non autem hoc:
+    <BLANKLINE>
+    igitur ne illud quidem.
+    <BLANKLINE>
+    Fortasse id optimum, sed ubi illud:
+    <BLANKLINE>
+    Plus semper voluptatis?
+    <BLANKLINE>
+    Teneo, inquit, finem illi videri nihil dolere.
+    <BLANKLINE>
+    Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
+    <BLANKLINE>
+    Si id dicis, vicimus.
+    <BLANKLINE>
+    Inde sermone vario sex illa a Dipylo stadia confecimus.
+    <BLANKLINE>
+    Sin aliud quid voles, postea.
+    <BLANKLINE>
+    Quae animi affectio suum cuique tribuens atque hanc, quam dico.
+    <BLANKLINE>
+
+
+***
+Essentially the function works as a text printer and separates
+parts of the sentence separated by '.', '?' and ':'.
