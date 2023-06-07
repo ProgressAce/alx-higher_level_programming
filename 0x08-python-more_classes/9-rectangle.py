@@ -10,8 +10,8 @@ class Rectangle:
     print_symbol = '#'
 
     def __init__(self, width=0, height=0):
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
 
     @property
@@ -107,8 +107,10 @@ class Rectangle:
 
         return cls(size, size)
 
+# rect = Rectangle.square(-2)
+# print(rect.__dict__)
+# print(repr(rect))
 
-# rect = Rectangle(4, 6)
 # print('rect\'s area: {} and perimeter: {}'.format(rect.area(),
 #                                         rect.perimeter()))
 # print(rect)
