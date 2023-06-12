@@ -1,0 +1,55 @@
+
+========================
+How to use 1-my_list.py:
+========================
+
+This module defines a class that inherits from list and sorts a list.
+
+``MyList`` - class that inherits from `list`.
+``print_sorted`` - method of MyList that prints the list in sorted ascending order.
+
+All the elements of the list are assumed to be of type int.
+
+USE:
+====
+
+Importing the module's MyList class.
+~~
+	>>> MyList = __import__('1-my_list.py').MyList
+
+Instantiating a MyList object with no arguments.
+~~
+	>>> lst = MyList()
+	>>> lst
+	[]
+
+Instantiating a MyList object with arguments.
+~~
+        >>> lst = MyList([1, 2, 3])
+        >>> lst
+	[1, 2, 3]
+
+	>>> lst = MyList((1, 2, 3))
+	>>> lst
+	[1, 2, 3]
+
+Printing the list in sorted order.
+~~
+	>>> lst.print_sorted()
+	[1, 2, 3]
+
+	>>> lst.__init__([5, 26, 5, 18])
+	>>> lst
+	[5, 26, 5, 18]
+
+	>>> lst.print_sorted()
+	[5, 5, 18, 26]
+
+Printing the an empty list in sorted order.
+~~
+	>>> lst.__init__()
+	>>> lst
+	[]
+
+	>>> lst.print_sorted()
+	[]

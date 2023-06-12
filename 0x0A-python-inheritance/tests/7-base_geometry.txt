@@ -1,0 +1,18 @@
+
+==============================
+How to use 7-base_geometry.py:
+==============================
+
+This module only defines a class for Base Geometry with a few methods.
+
+``BaseGeometry`` - class that has no initialisation and no instance or
+class members.
+``area`` - method of MyList that prints the list in sorted ascending order.
+``integer_validator`` - 
+
+This class is to be used as a base class for other geometry based classes.
+
+USE:
+====
+
+Importing the module's BaseGeometry class.
