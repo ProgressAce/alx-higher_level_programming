@@ -15,7 +15,7 @@ USE:
 
 Importing the module's MyList class.
 ~~
-	>>> MyList = __import__('1-my_list.py').MyList
+	>>> MyList = __import__('1-my_list').MyList
 
 Instantiating a MyList object with no arguments.
 ~~
