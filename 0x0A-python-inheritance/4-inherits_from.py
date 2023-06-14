@@ -1,10 +1,14 @@
 #!/usr/bin/python3
 
-"""Module that checks if an object's class is a subclass of the specified class."""
+"""Checks if an object's class is a subclass of the specified class."""
 
 
 def inherits_from(obj, a_class):
     """Checks if an object's class inherits from the specified class.
+
+    The object's class should not be the same as @a_class since that
+    would mean that @obj's class is not a subclass of @a_class and will
+    result in False being returned.
 
     Arg:
         obj: the object whose class will be checked.

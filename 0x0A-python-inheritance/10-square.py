@@ -2,8 +2,8 @@
 
 """Module that defines a class for a square nd inherits from a base class."""
 
-
 Rectangle = __import__('9-rectangle').Rectangle
+
 
 class Square(Rectangle):
     """Represents a Square and inherits fromparent class Rectangle."""
