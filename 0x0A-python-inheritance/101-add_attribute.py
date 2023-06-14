@@ -10,7 +10,7 @@ def add_attribute(obj, name, value):
         obj: the object to add the new attribute to.
         name: the name of the new attribute.
         value: the value of the new attribute.
-    
+
     Raises:
         TypeError: if the object can’t have new attribute.
     """
