@@ -80,13 +80,19 @@ class Rectangle(Base):
 
         rect = '[{}] ({})'.format(self.__class__.__name__, self.id)
         rect += '{}/{} - {}/{}'.format(self.__x, self.__y, self.__width,
-                                    self.__height)
+                                       self.__height)
         return rect
 
     def display(self):
-        """Displays the rectangle instance using #."""
+        """Displays the rectangle instance using #.
 
-        ...
+        Takes the x and y axis positions into account."""
+
+        for i in range(self.__y):  # for its y-axis position
+            print()
+
+        for i in range(self.__height):  # for its height
+            print(' '*self.__x + '#'*self.__width)  # for its x-axis position and width length
 
     def update(self, *args):
         """Changes the value of each argument.
