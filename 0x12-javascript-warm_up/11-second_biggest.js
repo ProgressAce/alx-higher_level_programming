@@ -4,11 +4,6 @@
 const process = require('process');
 const args = process.argv;
 
-if (args.length < 4) {
-  console.log(0);
-  return ;
-}
-
 let largest = args[2]; // first arg
 let secondLargest = args[3];
 
@@ -16,9 +11,14 @@ for (let x = 2; x < args.length; x++) {
   if (args[x] > largest) {
     secondLargest = largest;
     largest = args[x];
-  } else if (args[x] != largest && args[x] > secondLargest) {
+  } else if (args[x] > secondLargest && args[x] !== largest) {
     secondLargest = args[x];
   }
 }
 
-console.log(secondLargest);
+if (args.length < 4) {
+  console.log(0);
+} else {
+//  console.log('largest: ', largest);
+  console.log(secondLargest);
+}
