@@ -13,7 +13,7 @@ import MySQLdb
 def main():
     """Entry point of the script."""
 
-    conn = MySQLdb.connect(host='127.0.0.1', port=3306,
+    conn = MySQLdb.connect(host='localhost', port=3306,
                            user=argv[1], passwd=argv[2], db=argv[3])
     cur = conn.cursor()
 
