@@ -8,6 +8,7 @@ engine = create_engine(
         'mysql+mysqldb://root:root@127.0.0.1:3306/hbtn_0e_6_usa')
 Base = declarative_base()
 
+
 class State(Base):
     """Represents the states table mapped from the hbtn_0e_6_usa database."""
 
