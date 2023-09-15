@@ -1,23 +1,24 @@
 #!/usr/bin/python3
 """Script- Lists all cities from the database.
 
-The script takes three arguments and connects to the database hbtn_0e_0_usa;
-sorted in by cities.id in ascending order.
+The script takes three arguments and connects to the database hbtn_0e_4_usa;
+sorted according to cities.id in ascending order.
 The args are:
-    mysql username, password, database name and the state to search for."""
+    mysql username, password, database name."""
 
-from sys import argv
-import MySQLdb as DB
+if __name__ == '__main__':
+    from sys import argv
+    import MySQLdb as DB
 
-db = DB.connect(host='127.0.0.1', port=3306,
-                user=argv[1], passwd=argv[2], db=argv[3])
-cur = db.cursor()
+    db = DB.connect(host='127.0.0.1', port=3306,
+                    user=argv[1], passwd=argv[2], db=argv[3])
+    cur = db.cursor()
 
-cur.execute('SELECT * FROM cities ORDER BY cities.id')
-records = cur.fetchall()
+    cur.execute('SELECT * FROM cities ORDER BY cities.id')
+    records = cur.fetchall()
 
-for rec in records:
-    print(rec)
+    for rec in records:
+        print(rec)
 
-cur.close()
-db.close()
+    cur.close()
+    db.close()

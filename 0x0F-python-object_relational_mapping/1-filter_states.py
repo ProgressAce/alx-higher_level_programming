@@ -6,17 +6,18 @@ on localhost vat port 3306.
 They are:
     mysql username, password and database name."""
 
-from sys import argv
-import MySQLdb as DB
+if __name__ == '__main__':
+    from sys import argv
+    import MySQLdb as DB
 
-db = DB.connect(host='127.0.0.1', port=3306,
-                user=argv[1], passwd=argv[2], db=argv[3])
-cur = db.cursor()
+    db = DB.connect(host='127.0.0.1', port=3306,
+                    user=argv[1], passwd=argv[2], db=argv[3])
+    cur = db.cursor()
 
-cur.execute('SELECT * FROM states WHERE name LIKE "N%" ORDER BY states.id')
-records = cur.fetchall()
-for rec in records:
-    print(rec)
+    cur.execute('SELECT * FROM states WHERE name LIKE "N%" ORDER BY states.id')
+    records = cur.fetchall()
+    for rec in records:
+        print(rec)
 
-cur.close()
-db.close()
+    cur.close()
+    db.close()
