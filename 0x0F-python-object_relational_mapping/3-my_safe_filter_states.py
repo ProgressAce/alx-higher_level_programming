@@ -10,7 +10,7 @@ if __name__ == '__main__':
     from sys import argv
     import MySQLdb as DB
 
-    db = DB.connect(host='127.0.0.1', port=3306,
+    db = DB.connect(host='localhost', port=3306,
                     user=argv[1], passwd=argv[2], db=argv[3])
     cur = db.cursor()
 
