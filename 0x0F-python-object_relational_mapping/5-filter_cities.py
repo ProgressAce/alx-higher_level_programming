@@ -10,23 +10,33 @@ if __name__ == '__main__':
     from sys import argv
     import MySQLdb as DB
 
-    db = DB.connect(host='localhost', port=3306,
-                    user=argv[1], passwd=argv[2], db=argv[3])
-    cur = db.cursor()
+    if len(argv) != 5:
+        print('USAGE: ./5-filter_cities.py <username> <password>',
+              '<database_name> <state_name>')
+        exit()
 
-    cur.execute('SELECT name FROM cities WHERE state_id = \
-                (SELECT id FROM states WHERE name = "{}") ORDER BY cities.id'
-                .format(argv[4]))
+    try:
+        db = DB.connect(host='localhost', port=3306,
+                        user=argv[1], passwd=argv[2], db=argv[3])
+        cur = db.cursor()
 
-    records = cur.fetchall()
-    for i, rec in enumerate(records):
-        if i == len(records) - 1:
-            print(rec[0])
-        else:
-            print(rec[0], ', ', end='')
+        # case sensitive state selection
+        cur.execute('SELECT name FROM cities WHERE state_id = \
+                    (SELECT id FROM states WHERE name LIKE BINARY "{}") \
+                    ORDER BY cities.id'.format(argv[4]))
 
-    if len(records) == 0:
-        print()
+        records = cur.fetchall()
+        for i, rec in enumerate(records):
+            if i == len(records) - 1:
+                print(rec[0])
+            else:
+                print(rec[0], ', ', end='')
 
-    cur.close()
-    db.close()
+        if len(records) == 0:
+            print()
+
+    except DB.Error as e:
+        print('MySQL error: {}'.format(e))
+    finally:
+        cur.close()
+        db.close()

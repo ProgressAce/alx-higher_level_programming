@@ -10,15 +10,24 @@ if __name__ == '__main__':
     from sys import argv
     import MySQLdb as DB
 
-    db = DB.connect(host='localhost', port=3306,
-                    user=argv[1], passwd=argv[2], db=argv[3])
-    cur = db.cursor()
+    if len(argv) != 4:
+        print('USAGE: ./4-cities_by_state.py <username> <password>',
+              '<database_name>')
+        exit()
 
-    cur.execute('SELECT * FROM cities ORDER BY cities.id')
-    records = cur.fetchall()
+    try:
+        db = DB.connect(host='localhost', port=3306,
+                        user=argv[1], passwd=argv[2], db=argv[3])
+        cur = db.cursor()
 
-    for rec in records:
-        print(rec)
+        cur.execute('SELECT * FROM cities ORDER BY cities.id')
+        records = cur.fetchall()
 
-    cur.close()
-    db.close()
+        for rec in records:
+            print(rec)
+
+    except DB.Error as e:
+        print('MySQL error: {}'.format(e))
+    finally:
+        cur.close()
+        db.close()

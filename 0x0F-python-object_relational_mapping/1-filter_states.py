@@ -10,14 +10,25 @@ if __name__ == '__main__':
     from sys import argv
     import MySQLdb as DB
 
-    db = DB.connect(host='localhost', port=3306,
-                    user=argv[1], passwd=argv[2], db=argv[3])
-    cur = db.cursor()
+    if len(argv) != 4:
+        print('USAGE: ./1-filter_states.py <username> <password>',
+              '<database_name>')
+        exit()
 
-    cur.execute('SELECT * FROM states WHERE name LIKE "N%" ORDER BY states.id')
-    records = cur.fetchall()
-    for rec in records:
-        print(rec)
+    try:
+        db = DB.connect(host='localhost', port=3306,
+                        user=argv[1], passwd=argv[2], db=argv[3])
+        cur = db.cursor()
 
-    cur.close()
-    db.close()
+        # SQL query uses LIKE BINARY for case sensitive selection
+        cur.execute('SELECT * FROM states WHERE name LIKE BINARY "N%" \
+                     ORDER BY states.id')
+        records = cur.fetchall()
+        for rec in records:
+            print(rec)
+
+    except DB.Error as e:
+        print('MySQL errror: {}'.format(e))
+    finally:
+        cur.close()
+        db.close()
