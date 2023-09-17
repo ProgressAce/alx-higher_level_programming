@@ -18,16 +18,27 @@ if __name__ == '__main__':
     try:
         db = DB.connect(host='localhost', port=3306,
                         user=argv[1], passwd=argv[2], db=argv[3])
+    except DB.Error as e:
+        print('MySQL error: {}'.format(e))
+        exit()
+
+    try:
         cur = db.cursor()
 
-        cur.execute('SELECT * FROM cities ORDER BY cities.id')
-        records = cur.fetchall()
-
-        for rec in records:
-            print(rec)
+        cur.execute('SELECT c.id, c.name, s.name ' +
+                    'FROM cities AS c, states AS s ' +
+                    'WHERE c.state_id = s.id ' +
+                    'ORDER BY c.id')
 
     except DB.Error as e:
         print('MySQL error: {}'.format(e))
-    finally:
-        cur.close()
         db.close()
+        exit()
+
+    records = cur.fetchall()
+
+    for rec in records:
+        print(rec)
+
+    cur.close()
+    db.close()

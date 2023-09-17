@@ -15,28 +15,40 @@ if __name__ == '__main__':
               '<database_name> <state_name>')
         exit()
 
+    # safe guard from SQL injection
+    if not argv[4].isalpha():
+        exit()
+
     try:
-        db = DB.connect(host='localhost', port=3306,
+        conn = DB.connect(host='localhost', port=3306,
                         user=argv[1], passwd=argv[2], db=argv[3])
-        cur = db.cursor()
+    except DB.Error as e:
+        print('MySQL error: {}'.format(e))
+        exit()
+
+    try:
+        cur = conn.cursor()
 
         # case sensitive state selection
         cur.execute('SELECT name FROM cities WHERE state_id = \
                     (SELECT id FROM states WHERE name LIKE BINARY "{}") \
                     ORDER BY cities.id'.format(argv[4]))
 
-        records = cur.fetchall()
-        for i, rec in enumerate(records):
-            if i == len(records) - 1:
-                print(rec[0])
-            else:
-                print(rec[0], ', ', end='')
-
-        if len(records) == 0:
-            print()
-
     except DB.Error as e:
         print('MySQL error: {}'.format(e))
-    finally:
-        cur.close()
-        db.close()
+        conn.close()
+        exit()
+
+    records = cur.fetchall()
+
+    for i, rec in enumerate(records):
+        if i == len(records) - 1:
+            print(rec[0])
+        else:
+            print(rec[0], ', ', end='')
+
+    if len(records) == 0:
+        print()
+
+    cur.close()
+    conn.close()
