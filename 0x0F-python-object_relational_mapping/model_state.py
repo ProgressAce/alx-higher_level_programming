@@ -8,6 +8,13 @@ Base = declarative_base()
 
 
 class State(Base):
+    """Models a tsble named states of a database.
+
+    Arg:
+        id(int): unique integer and primary key of the table.
+        name(str): state name.
+    """ 
+
     __tablename__ = 'states'
 
     id = Column(Integer, autoincrement=True, nullable=False, primary_key=True)
