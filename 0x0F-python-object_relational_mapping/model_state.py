@@ -13,7 +13,7 @@ class State(Base):
     Arg:
         id(int): unique integer and primary key of the table.
         name(str): state name.
-    """ 
+    """
 
     __tablename__ = 'states'
 
